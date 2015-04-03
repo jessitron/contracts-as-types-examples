@@ -1,4 +1,4 @@
-(ns contractypes.core-test
+(ns contractypes.report-example-test
   (:require [clojure.test :refer :all]
             [contractypes.core :refer :all]
             [clojure.test.check.generators :as gen]
