@@ -1,6 +1,6 @@
 (ns contractypes.report-example-test
-  (:require [clojure.test :refer :all]
-            [contractypes.core :refer :all]
+  (:require [clojure.test :refer [deftest is testing use-fixtures]]
+            [contractypes.report-example :as subject]
             [clojure.test.check.generators :as gen]
             [clojure.test.check.properties :as prop]
             [clojure.test.check.clojure-test :refer [defspec]]
@@ -8,10 +8,8 @@
 
 (use-fixtures :once schema.test/validate-schemas)
 
-(defspec i-like-orange 100
-  (prop/for-all [n gen/int]
-                (is (= :orange (favorite-color)))))
-
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest ad-performance-report-test
+  (testing "title in first field"
+    (let [result (subject/ad-performance-report {:title "These Are Great"})
+          first-cell (get-in result [:cells 0 0])]
+      (is (= "These Are Great" first-cell)))))
