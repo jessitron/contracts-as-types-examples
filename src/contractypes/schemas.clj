@@ -31,5 +31,7 @@
                           "Report data"))
 
 (s/defschema Params (s/named
-                      {}
+                      {:title s/Str
+                       :start DateTime
+                       :end DateTime}
                       "Report parameters"))

@@ -15,7 +15,9 @@
 
 (declare group-up summarize add-total-row add-headers)
 
-(defn analyze-ad-performance [events params]
+(s/defn analyze-ad-performance :- t/ReportData
+  [events :- [t/Event]
+   params :- t/Params]
   (-> events
       (group-up params)
       summarize
@@ -26,7 +28,8 @@
   (merge so-far (select-keys params [:title])))
 
 (defn add-total-row [groups]
-  {:groups groups})
+  {:groups groups
+   :total {}})
 
 (defn summarize [so-far]
   so-far)

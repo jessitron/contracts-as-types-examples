@@ -9,6 +9,12 @@
 (use-fixtures :once schema.test/validate-schemas)
 
 (deftest ad-performance-report-test
+  (testing "grouping of rows"
+    (let [events []
+          expected []
+          result (subject/analyze-ad-performance
+                   events {})]
+      (is (= expected (:groups result)))))
   (testing "title in first field"
     (let [result (subject/ad-performance-report {:title "These Are Great"})
           first-cell (get-in result [:cells 0 0])]
