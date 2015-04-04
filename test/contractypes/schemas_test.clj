@@ -8,9 +8,9 @@
                 :what "show"
                 :who  "abc123"})
 
-(defn matches? [s v]
-  (is (nil? (s/check s v))))
+(defn matching? [s v]
+  (nil? (s/check s v)))
 
 (deftest event-schema
   (testing "a positive example"
-    (matches? t/Event one-event)))
+    (is (matching? t/Event one-event))))
