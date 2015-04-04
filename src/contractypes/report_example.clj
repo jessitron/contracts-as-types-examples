@@ -1,6 +1,7 @@
 (ns contractypes.report-example
   (:require [schema.core :as s]
-            [clj-time.core :as time]))
+            [clj-time.core :as time]
+            [contractypes.schemas :as t]))
 
 (declare fetch-events analyze-ad-performance format-report)
 
@@ -33,8 +34,8 @@
 (defn group-up [events params]
     [events])
 
-(defn fetch-events [params]
-  [{:who "me" :what "click" :when (time/now)}])
+(s/defn fetch-events :- [t/Event] [params]
+  [{:who "me" :what "click" :when (time/now) :poo "turd"}])
 
 
 
