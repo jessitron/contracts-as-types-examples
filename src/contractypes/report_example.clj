@@ -35,7 +35,5 @@
     [events])
 
 (s/defn fetch-events :- [t/Event] [params]
-  [{:who "me" :what "click" :when (time/now) :poo "turd"}])
-
-
+  [{:who "me" :what "click" :when (time/now)}])
 
