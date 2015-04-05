@@ -27,7 +27,8 @@
 
 (s/defschema ReportData (s/named
                           {:groups [Group]
-                           :header Headers}
+                           :header Headers
+                           :total Totals}
                           "Report data"))
 
 (s/defschema Params (s/named
