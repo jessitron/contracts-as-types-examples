@@ -6,4 +6,5 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/test.check "0.7.0"]
                  [prismatic/schema "0.3.7"]
-                 [clj-time "0.9.0"]])
+                 [clj-time "0.9.0"]
+                 [schematron "0.1.0-SNAPSHOT"]])
