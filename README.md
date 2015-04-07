@@ -1,14 +1,12 @@
 # contractypes
 
-This is probably some code that I use on my blog.
+Example code from Contracts and Clojure: the best-yet Compromise between
+Types and Tests, Philly ETE, 2015.
 
-## Usage
-
-FIXME
 
 ## License
 
 Copyright © 2015 Jessica Kerr
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+CC0, help yourself, no guarantees.
+
