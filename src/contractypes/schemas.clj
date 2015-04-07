@@ -21,8 +21,14 @@
                       {}
                       "Report totals"))
 
+(defn capitalized? [s]
+  (not (Character/isLowerCase (first s))))
+
 (s/defschema Headers (s/named
-                       {:title s/Str}
+                       {:title (s/both
+                                 s/Str
+                                 (s/pred (complement empty?) "nonempty")
+                                 (s/pred capitalized? "capitalized"))}
                        "Report header data"))
 
 (s/defschema ReportData (s/named

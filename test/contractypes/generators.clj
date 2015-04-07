@@ -7,7 +7,16 @@
             [clj-time.core :as time]
             [schema.core :as s]))
 
-(st/defgen params t/Params (gen/hash-map :title gen/string-alpha-numeric
-                          :start (time-gen/datetime-before (time/now))
-                          :end (time-gen/datetime-before (time/now))))
+(s/defn capitalize [s :- s/Str]
+  (let [[f & r] s]
+    (apply str (Character/toUpperCase f) r)))
+
+(def valid-title (gen/fmap capitalize
+                           (gen/such-that
+                             (complement empty?) gen/string-alpha-numeric)))
+
+(st/defgen params t/Params (gen/hash-map
+                             :title valid-title
+                             :start (time-gen/datetime-before (time/now))
+                             :end (time-gen/datetime-before (time/now))))
 ;; TODO: bring in the monad and define start-date in terms of end
